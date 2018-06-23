@@ -1,0 +1,12 @@
+{
+  "name": "prueba-mambot",
+  "version": "1.0.0",
+  "description": "> Aplicación desarrollada con el stack MEAN (Mongo, Express, Angular y Node). Consiste en un sistema sencillo para el control de libros y préstamos en una biblioteca.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
