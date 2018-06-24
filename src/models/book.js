@@ -8,14 +8,14 @@ const book_schema = new Schema({
    title: {
 		type: String,
 		required: true,
-		maxlength: [50,"Title too long"],
-		minlength: [2,"Title too short"]
+		maxlength: [50,"Title too big"],
+		minlength: [2,"Title too small"]
 	},
 	author: {
 		type: String,
 		required: true,
-		maxlength: [30,"Name too long"],
-		minlength: [2,"Name too short"]
+		maxlength: [30,"Name too big"],
+		minlength: [2,"Name too small"]
    },
 	language: {
 		type: String,
@@ -26,11 +26,12 @@ const book_schema = new Schema({
 	},
 	editorial: {
 		type: String,
-		maxlength: [30,"Editorial name too long"],
-		minlength: [3,"Editorial name too short"]
+		maxlength: [30,"Editorial name too big"],
+		minlength: [3,"Editorial name too small"]
 	},
 	state: {
 		type: String,
+		default: 'active',
 		enum:{
 			values: state_opt,
 			message:"Wrong choice"

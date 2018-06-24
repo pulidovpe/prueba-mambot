@@ -1,5 +1,14 @@
 const Book = require('../models/book');
 
+async function getBooks(req,res) {
+   try {
+      const books = await Book.find();
+      res.json(books);
+   } catch(err) {
+      res.status(400).send({ error: 'Something failed. Nothing in Database!' });
+   }
+}
+
 async function getBook(req,res) {
    try {
       const id = req.params.id;
@@ -13,19 +22,10 @@ async function getBook(req,res) {
    }
 }
 
-async function getBooks(req,res) {
-   try {
-      const books = await Book.find();
-      res.json(books);
-   } catch(err) {
-      res.status(500).send({ error: 'Something failed. Nothing in Database!' });
-   }
-}
-
 async function saveBook(req,res) {
    try {
-      const {title,author,editorial,language,state} = req.body;
-      const newBook = new Book({title,author,editorial,language,state});      
+      const { title,author,editorial,language,state } = req.body;
+      const newBook = new Book({ title,author,editorial,language,state });      
       await newBook.save();
       console.log(JSON.stringify(newBook));
       res.status(200).send({ status: 'Book saved' });
@@ -38,8 +38,8 @@ async function saveBook(req,res) {
 async function updateBook(req,res) {
    try {
       const id = req.params.id;
-      const {title,author,editorial,language,state} = req.body;
-      const updBook = {title,author,editorial,language,state};
+      const { title,author,editorial,language,state } = req.body;
+      const updBook = { title,author,editorial,language,state };
       await Book.findByIdAndUpdate(id, updBook);
       console.log(JSON.stringify(updBook));
       res.status(200).send({ status: 'Book updated' });
@@ -59,8 +59,8 @@ async function deleteBook(req,res) {
 }
 
 module.exports = {
-   getBook,
    getBooks,
+   getBook,
    saveBook,
    updateBook,
    deleteBook

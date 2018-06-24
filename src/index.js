@@ -8,7 +8,7 @@ const app = express();
 
 const { app: { port } } = require('./config/config');
 const { mongoose } = require('./config/database');
-//const indexRoutes = require('./routes/index');
+const usersRoutes = require('./routes/users');
 const booksRoutes = require('./routes/books');
 
 // Settings *****************
@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // Routes********************
-//app.use(indexRoutes);
-app.use('/', booksRoutes);
+app.use('/api1', booksRoutes);
+app.use('/api2', usersRoutes);
 
 // Static files**************
 app.use(express.static(path.join(__dirname, 'dist')));
