@@ -14,7 +14,8 @@ con la fecha y días a prestar.
 ## Tech-framework used / Tecnologías Usadas
 - Node
 - Express
-- 
+- Path
+- Cors
 
 ## Install / Instalación
 #### OS X, Linux y Windows
@@ -31,9 +32,9 @@ npm run dev
 ## Tasks / Lista de Tareas
 - [x] Inicializar repositorio
 - [x] Subir mis primeros cambios a GitHub
-- [ ] Completar el backend
-- [ ] 
-- [ ] 
+- [x] Completar el backend
+- [ ] Completar el frontend
+- [ ] Finalizar el proyecto
 
 
 ## License / Licencia
