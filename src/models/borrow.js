@@ -12,24 +12,27 @@ const borrow_schema = new Schema({
    user_id: { 
 		type: Schema.ObjectId, 
 		ref: "user", 
-		required: true 
+		default: null 
 	},
 	book_id: { 
 		type: Schema.ObjectId, 
 		ref: "book", 
-		required: true 
+		default: null
 	},
 	date_borrowed: {
 		type: Date,
 		default: Date.now
 	},
-	date_due: Date,
+	date_due: {
+		type: Date,
+		default: null
+	},
 	state: {
 		type: String,
 		default: 'current',
 		enum:{
 			values: state_opt,
-			message:"Wrong choice"
+			message:'Wrong choice'
 		}
 	}
 });

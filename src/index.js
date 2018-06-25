@@ -8,8 +8,9 @@ const app = express();
 
 const { app: { port } } = require('./config/config');
 const { mongoose } = require('./config/database');
-const usersRoutes = require('./routes/users');
-const booksRoutes = require('./routes/books');
+const userRoutes = require('./routes/users');
+const bookRoutes = require('./routes/books');
+const borrowRoutes = require('./routes/borrows');
 
 // Settings *****************
 app.set('views', path.join(__dirname, 'views'));
@@ -20,8 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // Routes********************
-app.use('/api1', booksRoutes);
-app.use('/api2', usersRoutes);
+app.use('/api1', bookRoutes);
+app.use('/api2', userRoutes);
+app.use('/api3', borrowRoutes);
 
 // Static files**************
 app.use(express.static(path.join(__dirname, 'dist')));

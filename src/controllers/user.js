@@ -2,12 +2,8 @@ const User = require('../models/user');
 
 async function getUsers(req,res) {
    try {
-      const users = await User.find({}).populate({path: 'book', model: 'Book'})
-         .exec((err, books) => {
-         // console.log("Populated Book " + books);
-         if(err || books === undefined) res.status(404).send({ error: 'Something failed. Not found!' });
-         else res.json(books);
-      });
+      const users = await User.find({});
+      res.json(books);
    } catch(err) {
       res.status(500).send({ error: 'Something failed in Database!' });
    }
@@ -16,12 +12,8 @@ async function getUsers(req,res) {
 async function getUser(req,res) {
    try {
       const nid = req.params.id;
-      const user = await User.findOne({nid}).populate({path: 'book', model: 'Book'})
-         .exec((err, books) => {
-         // console.log("Populated Book " + books);
-         if(err || books === undefined) res.status(404).send({ error: 'Something failed. Not found!' });
-         else res.json(books);
-      });
+      const user = await User.findOne({nid});
+      res.json(books);
    } catch(err) {
       res.status(404).send({ error: 'Something failed. Not found!' });     
    }
