@@ -16,8 +16,6 @@ con la fecha y días a prestar.
 - Express
 - Path
 - Cors
-- Angular
-- Materialize
 
 ## Install / Instalación
 #### OS X, Linux y Windows
@@ -31,10 +29,6 @@ npm install
 
 npm run dev
 ```
-
-## How to use / Como usarlo
-
-
 ## Tasks / Lista de Tareas
 - [x] Inicializar repositorio
 - [x] Subir mis primeros cambios a GitHub
